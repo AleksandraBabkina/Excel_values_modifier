@@ -1,14 +1,22 @@
 import openpyxl
 import random
 import os
-import time 
 
 # File name
-file_name = "2024 + НС Кв погр и Журналы ГОК.xlsx"
+file_name = "Журналы.xlsx"
+
+# Check if the file exists
+if not os.path.exists(file_name):
+    print(f"Файл {file_name} не найден.")
+    exit()
 
 # Open the Excel file
-wb = openpyxl.load_workbook(file_name, data_only=False)  # Keep formulas
-ws = wb.active
+try:
+    wb = openpyxl.load_workbook(file_name, data_only=False)  # Keep formulas
+    ws = wb.active
+except Exception as e:
+    print(f"Ошибка при открытии файла: {e}")
+    exit()
 
 # Find all unique names in row 6 starting with "Rp"
 rp_columns = {}  # Dictionary {column: name}
@@ -35,7 +43,8 @@ for col in rp_columns:
 
 # Save changes to the file
 new_file_name = "Измененный_" + file_name
-wb.save(new_file_name)
-print(f"Файл сохранен как: {new_file_name}")
-
-time.sleep(60)
+try:
+    wb.save(new_file_name)
+    print(f"Файл сохранен как: {new_file_name}")
+except Exception as e:
+    print(f"Ошибка при сохранении файла: {e}")

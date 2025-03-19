@@ -42,7 +42,7 @@ To run the program, the following are required:
 
 ## Example Output
 Output:
-- A new Excel file will be saved with the name `Измененный_2024 + НС Кв погр и Журналы ГОК.xlsx`.
+- A new Excel file will be saved with the name `Журналы.xlsx`.
 
 ## Conclusion
 This script provides an automated way to modify specific numeric values in an Excel file based on certain criteria, making it useful for data manipulation tasks in various domains.
